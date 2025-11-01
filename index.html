@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoApply Jobs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+      background: #f9f9f9;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #ccc;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #3498db;
+      border: none;
+      padding: 10px 16px;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .job-listing {
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      background: #eaf3fb;
+    }
+    .toggle {
+      display: flex;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .toggle input {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AutoApply Jobs</h1>
+    <p>Get USD remote jobs matched to you and automatically apply while you focus on your current job.</p>
+  </header>
+
+  <section id="profile-section">
+    <h2>Create Your Profile</h2>
+    <form id="profile-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="John Doe" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="john@example.com" required />
+
+      <label for="skills">Skills (comma separated)</label>
+      <input type="text" id="skills" placeholder="JavaScript, Python, Remote Work" required />
+
+      <label for="experience">Years of Experience</label>
+      <input type="number" id="experience" min="0" max="50" step="1" required />
+
+      <label for="job-preferences">Job Preferences</label>
+      <textarea id="job-preferences" rows="4" placeholder="e.g., Remote, Full-time, Software Developer, USD pay rate"></textarea>
+
+      <button type="submit">Save Profile</button>
+    </form>
+  </section>
+
+  <section id="dashboard-section" style="display:none;">
+    <h2>Job Matches</h2>
+    <div id="job-listings">
+      <div class="job-listing">
+        <strong>Remote Software Developer - USD 30/hr</strong><br />
+        Company: Tech Innovators<br />
+        Location: Remote Worldwide<br />
+        Experience required: 2+ years
+      </div>
+      <div class="job-listing">
+        <strong>Frontend Engineer (React) - USD 25/hr</strong><br />
+        Company: Creative Apps<br />
+        Location: Remote<br />
+        Experience required: 3+ years
+      </div>
+    </div>
+
+    <div class="toggle">
+      <input type="checkbox" id="auto-apply" />
+      <label for="auto-apply">Enable Automatic Job Application</label>
+    </div>
+  </section>
+
+  <script>
+    const profileForm = document.getElementById('profile-form');
+    const dashboardSection = document.getElementById('dashboard-section');
+    const profileSection = document.getElementById('profile-section');
+
+    profileForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Simulate saving profile and showing dashboard
+      alert('Profile saved! You can now see your matched jobs.');
+      profileSection.style.display = 'none';
+      dashboardSection.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
