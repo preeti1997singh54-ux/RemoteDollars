@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Applications</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f7fa; }
+    h2 { text-align: center; }
+    #filter { margin: 10px auto; display: block; width: 200px; }
+    .dashboard { display: flex; gap: 16px; justify-content: center; margin-top: 20px; }
+    .column { background: #fff; padding: 10px; border-radius: 8px; min-width: 200px; flex: 1; }
+    .column h3 { text-align: center; margin-bottom: 8px; }
+    .job { background: #dee8ff; margin: 8px 0; padding: 8px; border-radius: 6px; cursor: grab; }
+    .dragging { opacity: 0.5; }
+  </style>
+</head>
+<body>
+
+<h2>My Applications</h2>
+<input id="filter" type="text" placeholder="Search jobs..." />
+
+<div class="dashboard">
+  <div class="column" data-status="Applied">
+    <h3>Applied</h3>
+  </div>
+  <div class="column" data-status="Interviews">
+    <h3>Interviews</h3>
+  </div>
+  <div class="column" data-status="Offers">
+    <h3>Offers</h3>
+  </div>
+  <div class="column" data-status="Rejected">
+    <h3>Rejected</h3>
+  </div>
+</div>
+
+<script>
+const jobs = [
+  { id:1, title:"Remote Software Developer", company:"Tech Innovators", status:"Applied" },
+  { id:2, title:"Frontend Engineer (React)", company:"Creative Apps", status:"Applied" },
+  { id:3, title:"QA Analyst", company:"Dev Corp", status:"Interviews" }
+];
+
+// Render jobs by status
+function renderJobs() {
+  // Clear columns
+  document.querySelectorAll('.column').forEach(col => col.innerHTML = `<h3>${col.getAttribute('data-status')}</h3>`);
+  const query = document.getElementById('filter').value.toLowerCase();
+  jobs.forEach(job => {
+    if (
+      job.title.toLowerCase().includes(query) ||
+      job.company.toLowerCase().includes(query)
+    ) {
+      const div = document.createElement('div');
+      div.className = 'job';
+      div.draggable = true;
+      div.dataset.id = job.id;
+      div.textContent = `${job.title} @ ${job.company}`;
+      document.querySelector(`.column[data-status="${job.status}"]`).appendChild(div);
+    }
+  });
+}
+renderJobs();
+
+// Drag and drop logic
+let dragged = null;
+document.addEventListener('dragstart', e => {
+  if (e.target.classList.contains('job')) {
+    dragged = e.target;
+    setTimeout(() => e.target.classList.add('dragging'), 0);
+  }
+});
+document.addEventListener('dragend', e => {
+  if (dragged) {
+    dragged.classList.remove('dragging');
+    dragged = null;
+  }
+});
+document.querySelectorAll('.column').forEach(col => {
+  col.addEventListener('dragover', e => e.preventDefault());
+  col.addEventListener('drop', e => {
+    if (dragged) {
+      const status = col.getAttribute('data-status');
+      const jobId = parseInt(dragged.dataset.id);
+      jobs.find(j=>j.id === jobId).status = status;
+      renderJobs();
+    }
+  });
+});
+
+// Filter/search logic
+document.getElementById('filter').addEventListener('input', renderJobs);
+</script>
+</body>
+</html>
