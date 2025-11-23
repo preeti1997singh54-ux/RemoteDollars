@@ -53,11 +53,18 @@ function renderJobs() {
       job.company.toLowerCase().includes(query)
     ) {
       const div = document.createElement('div');
-      div.className = 'job';
-      div.draggable = true;
-      div.dataset.id = job.id;
-      div.textContent = `${job.title} @ ${job.company}`;
-      document.querySelector(`.column[data-status="${job.status}"]`).appendChild(div);
+div.className = 'job';
+div.draggable = true;
+div.dataset.id = job.id;
+
+const link = document.createElement('a');
+link.href = job.url;
+link.textContent = `${job.title} @ ${job.company}`;
+link.target = "_blank"; // Opens company site in a new tab
+
+div.appendChild(link);
+      
+document.querySelector(`.column[data-status="${job.status}"]`).appendChild(div);
     }
   });
 }
