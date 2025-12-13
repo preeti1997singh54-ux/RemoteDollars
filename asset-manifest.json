@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/RemoteDollars/static/css/main.e6c13ad2.css",
+    "main.js": "/RemoteDollars/static/js/main.913a4e51.js",
+    "static/js/488.03dcc4e2.chunk.js": "/RemoteDollars/static/js/488.03dcc4e2.chunk.js",
+    "index.html": "/RemoteDollars/index.html",
+    "main.e6c13ad2.css.map": "/RemoteDollars/static/css/main.e6c13ad2.css.map",
+    "main.913a4e51.js.map": "/RemoteDollars/static/js/main.913a4e51.js.map",
+    "488.03dcc4e2.chunk.js.map": "/RemoteDollars/static/js/488.03dcc4e2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.913a4e51.js"
+  ]
+}
