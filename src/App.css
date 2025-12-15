@@ -1,5 +1,12 @@
-.App {
+  .App {
   text-align: center;
+}
+.app-shell {
+  width: 100%;
+  max-width: 1400px;        
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  background: white;
 }
 
 .App-logo {

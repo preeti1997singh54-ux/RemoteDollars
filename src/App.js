@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import "./App.css";
 import { Search, Briefcase, Settings, User, Zap, Clock, CheckCircle, TrendingUp, Filter, Bell, Play, Pause, DollarSign, MapPin, Calendar } from 'lucide-react';
 
-export default function RemoteDollarsApp() {
+function RemoteDollarsApp() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isAutoApplying, setIsAutoApplying] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -430,15 +431,23 @@ export default function RemoteDollarsApp() {
   );
 
   const ProfileView = () => (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-indigo-50 to-slate-50">
+    <div className="max-w-4xl mx-auto
+  px-6 py-10 space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Profile</h1>
         <p className="text-gray-600 mt-1">Manage your account and resume</p>
       </div>
 
-      <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">Personal Information</h2>
-        <div className="space-y-4">
+      <div className="bg-white/95 backdrop-blur rounded-2xl shadow-lg border border-sky-100 p-8 space-y-8">
+        <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+  <span className="h-6 w-1 rounded-full bg-sky-500"/>
+  Personal Information
+</h2>
+         <div className="grid gap-6 md:grid-cols-2">
+  {/* Full name, Email, Phone inputs */}
+   </div>
+      <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
             <input
@@ -483,14 +492,19 @@ export default function RemoteDollarsApp() {
           </div>
         </div>
       </div>
-
-      <button className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg transition-all">
-        Save Changes
-      </button>
+      <button
+  className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg
+             bg-gradient-to-r from-sky-500 to-indigo-500 text-white text-sm font-medium
+             shadow-md hover:from-sky-600 hover:to-indigo-600 hover:shadow-lg
+             focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">
+  Save changes
+</button>
     </div>
+   </div>
   );
 
   return (
+    <div className="app-shell">
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       <nav className="bg-white shadow-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -561,6 +575,8 @@ export default function RemoteDollarsApp() {
         {activeTab === 'profile' && <ProfileView />}
       </main>
     </div>
+   </div>
   );
 }
 
+export default RemoteDollarsApp;
