@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/remotedollars/static/css/main.c7304251.css",
-    "main.js": "/remotedollars/static/js/main.0dffd886.js",
-    "static/js/488.b4b93246.chunk.js": "/remotedollars/static/js/488.b4b93246.chunk.js",
-    "index.html": "/remotedollars/index.html",
-    "main.c7304251.css.map": "/remotedollars/static/css/main.c7304251.css.map",
-    "main.0dffd886.js.map": "/remotedollars/static/js/main.0dffd886.js.map",
-    "488.b4b93246.chunk.js.map": "/remotedollars/static/js/488.b4b93246.chunk.js.map"
+    "main.css": "/static/css/main.c7304251.css",
+    "main.js": "/static/js/main.63d9703e.js",
+    "static/js/488.b4b93246.chunk.js": "/static/js/488.b4b93246.chunk.js",
+    "index.html": "/index.html",
+    "main.c7304251.css.map": "/static/css/main.c7304251.css.map",
+    "main.63d9703e.js.map": "/static/js/main.63d9703e.js.map",
+    "488.b4b93246.chunk.js.map": "/static/js/488.b4b93246.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7304251.css",
-    "static/js/main.0dffd886.js"
+    "static/js/main.63d9703e.js"
   ]
 }
