@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote Dollars - Add Jobs from Anywhere</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      background: white;
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #111827;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      background: #f9fafb;
+      border-radius: 16px;
+      border: 2px solid #e5e7eb;
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .bookmarklet-section {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 32px;
+      border-radius: 16px;
+      margin-bottom: 32px;
+      color: white;
+    }
+
+    .bookmarklet-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .bookmarklet-button {
+      display: inline-block;
+      padding: 16px 32px;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 18px;
+      margin: 16px 0;
+      cursor: move;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .bookmarklet-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .instruction-steps {
+      margin-top: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .video-demo {
+      background: #f9fafb;
+      padding: 32px;
+      border-radius: 16px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .demo-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 16px;
+    }
+
+    .demo-placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .browser-icons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .browser-icon {
+      padding: 12px 24px;
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .alert {
+      background: #fef3c7;
+      border: 2px solid #fbbf24;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .alert-icon {
+      font-size: 24px;
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-title {
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 4px;
+    }
+
+    .alert-text {
+      font-size: 14px;
+      color: #78350f;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📌 Save Jobs from Anywhere</h1>
+    <p class="subtitle">Add jobs to Remote Dollars while browsing LinkedIn, Indeed, or any job site!</p>
+
+    <div class="alert">
+      <div class="alert-icon">⚡</div>
+      <div class="alert-content">
+        <div class="alert-title">One-Click Job Saving</div>
+        <div class="alert-text">
+          Drag the button below to your bookmarks bar, then click it on any job page to instantly save it to Remote Dollars!
+        </div>
+      </div>
+    </div>
+
+    <div class="bookmarklet-section">
+      <div class="bookmarklet-title">🔖 Your Magic Bookmark</div>
+      <p style="margin-bottom: 16px; opacity: 0.9;">
+        Drag this button to your browser's bookmarks bar:
+      </p>
+      
+      <a href="javascript:(function(){var t=document.title,u=window.location.href,c='';try{c=document.querySelector('[class*=company],[class*=employer]').innerText||document.querySelector('meta[property=\"og:site_name\"]').content||'Company'}catch(e){}var l='';try{l=document.querySelector('[class*=location],[class*=address]').innerText||'Remote'}catch(e){}var s='https://remotedollars.in/save-job?title='+encodeURIComponent(t)+'&url='+encodeURIComponent(u)+'&company='+encodeURIComponent(c)+'&location='+encodeURIComponent(l);window.open(s,'_blank','width=500,height=600')})();" 
+         class="bookmarklet-button pulse">
+        ➕ Add to Remote Dollars
+      </a>
+
+      <div class="instruction-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <strong>Drag</strong> the purple button above to your browser's bookmarks bar (usually at the top)
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <strong>Browse</strong> any job site (LinkedIn, Indeed, company careers pages, etc.)
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <strong>Click</strong> the bookmark when you find an interesting job
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <strong>Done!</strong> The job is automatically saved to your Remote Dollars dashboard
+          </div>
+        </div>
+      </div>
+
+      <div class="browser-icons">
+        <div class="browser-icon">✅ Chrome</div>
+        <div class="browser-icon">✅ Firefox</div>
+        <div class="browser-icon">✅ Safari</div>
+        <div class="browser-icon">✅ Edge</div>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-title">Works Everywhere</div>
+        <div class="feature-desc">
+          LinkedIn, Indeed, Glassdoor, company career pages - save jobs from any website!
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Instant Save</div>
+        <div class="feature-desc">
+          One click to save. No copy-pasting URLs or job details. Everything is automatic.
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Organized Dashboard</div>
+        <div class="feature-desc">
+          All saved jobs appear in your dashboard. Track status, add notes, and apply later.
+        </div>
+      </div>
+    </div>
+
+    <div class="video-demo">
+      <div class="demo-title">📹 How It Works</div>
+      <div class="demo-placeholder">
+        🎬
+      </div>
+      <p style="color: #6b7280; font-size: 14px;">
+        Video tutorial showing how to install and use the bookmarklet
+      </p>
+    </div>
+
+    <div style="background: #f9fafb; padding: 24px; border-radius: 16px; border: 2px dashed #e5e7eb;">
+      <h3 style="margin-bottom: 16px; color: #111827;">💡 Pro Tips</h3>
+      <ul style="color: #6b7280; line-height: 2; padding-left: 24px;">
+        <li>Use it while browsing LinkedIn job posts to save interesting positions</li>
+        <li>Click it on company career pages to add jobs directly from the source</li>
+        <li>Save jobs throughout the week, then batch-apply on Friday using Auto-Apply</li>
+        <li>Works on mobile browsers too! Add bookmark to mobile browser bar</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding-top: 32px; border-top: 2px solid #e5e7eb;">
+      <p style="color: #6b7280; margin-bottom: 16px;">Need help? Can't see your bookmarks bar?</p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="alert('Chrome: Press Ctrl+Shift+B (Windows) or Cmd+Shift+B (Mac) to show bookmarks bar')" 
+                style="padding: 12px 24px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+          Chrome Help
+        </button>
+        <button onclick="alert('Firefox: Right-click the toolbar area → Check \\'Bookmarks Toolbar\\'')" 
+                style="padding: 12px 24px; background: #f97316; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+          Firefox Help
+        </button>
+        <button onclick="alert('Safari: View menu → Show Favorites Bar')" 
+                style="padding: 12px 24px; background: #8b5cf6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+          Safari Help
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
