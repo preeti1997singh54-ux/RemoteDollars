@@ -715,4 +715,53 @@ label {
     width: 100%;
     justify-content: center;
   }
+.job-header {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  .apply-btn {
+    width: 100% !important;
+  }
+  
+  .job-title-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  
+  .search-flex {
+    flex-direction: column !important;
+  }
+  
+  .search-wrapper {
+    width: 100% !important;
+  }
+  
+  .select, .filter-btn {
+    width: 100% !important;
+  }
+}
+
+/* Improve search input focus */
+.search-input:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+  outline: none !important;
+}
+
+/* Better hover states */
+.job-card:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
 }
